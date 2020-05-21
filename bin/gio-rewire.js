@@ -2,12 +2,13 @@
 
 'use strict';
 require('colorful').colorful();
+const rewireConfig = require('../lib/getRewireConfig');
 
 const gulp = require('gulp');
 const program = require('commander');
 
 program.on('--help', () => {
-  console.log('  Usage:'.to.bold.blue.color);
+  console.log('Usage:'.to.bold.blue.color);
   console.log();
 });
 
@@ -47,8 +48,10 @@ const task = program.args[1];
 if (!task || !scope) {
   program.help();
 } else {
-  console.log(`gio-rewire ${scope} ${task}`);
   require('../lib/gulpfile');
-  console.log(`${scope}-${task}-watch`)
-  runTask(`${scope}-${task}-watch`);
+  if (rewireConfig.watch) {
+    runTask(`${scope}-${task}-watch`);
+  } else {
+    runTask(`${scope}-${task}`);
+  }
 }
