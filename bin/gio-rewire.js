@@ -9,7 +9,6 @@ const program = require('commander');
 
 program.on('--help', () => {
   console.log('Usage:'.to.bold.blue.color);
-  console.log();
 });
 
 program

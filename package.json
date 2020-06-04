@@ -1,6 +1,6 @@
 {
   "name": "gio-rewire",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tools for growingio frontend Architecture",
   "main": "index.js",
   "scripts": {
